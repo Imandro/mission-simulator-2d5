@@ -23,10 +23,22 @@ namespace MissionSystem
         [SerializeField] private int numberOfTestMissions = 3;
         
         private MissionManager missionManager;
+        private bool hasSetup = false;
+        
+        private void Awake()
+        {
+            if (!hasSetup)
+            {
+                SetupTestScene();
+                hasSetup = true;
+            }
+        }
         
         [ContextMenu("Setup Test Scene")]
         public void SetupTestScene()
         {
+            if (hasSetup) return;
+            hasSetup = true;
             Debug.Log("Configurando escena de prueba...");
             
             // 1. Crear MissionManager
