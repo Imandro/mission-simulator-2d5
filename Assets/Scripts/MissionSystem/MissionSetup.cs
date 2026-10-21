@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.UI;
 using System.Collections.Generic;
 
 namespace MissionSystem
@@ -200,19 +201,19 @@ namespace MissionSystem
                     
                 missionUI.GetType().GetField("missionNameText", 
                     System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.Instance)
-                    ?.SetValue(missionUI, panelObj.transform.Find("MissionName").GetComponent<TextMeshProUGUI>());
+                    ?.SetValue(missionUI, panelObj.transform.Find("MissionName").GetComponent<Text>());
                     
                 missionUI.GetType().GetField("missionDescriptionText", 
                     System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.Instance)
-                    ?.SetValue(missionUI, panelObj.transform.Find("MissionDescription").GetComponent<TextMeshProUGUI>());
+                    ?.SetValue(missionUI, panelObj.transform.Find("MissionDescription").GetComponent<Text>());
                     
                 missionUI.GetType().GetField("missionObjectiveText", 
                     System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.Instance)
-                    ?.SetValue(missionUI, panelObj.transform.Find("MissionObjective").GetComponent<TextMeshProUGUI>());
+                    ?.SetValue(missionUI, panelObj.transform.Find("MissionObjective").GetComponent<Text>());
                     
                 missionUI.GetType().GetField("timerText", 
                     System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.Instance)
-                    ?.SetValue(missionUI, panelObj.transform.Find("TimerText").GetComponent<TextMeshProUGUI>());
+                    ?.SetValue(missionUI, panelObj.transform.Find("TimerText").GetComponent<Text>());
                     
                 missionUI.GetType().GetField("progressBar", 
                     System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.Instance)
@@ -231,12 +232,12 @@ namespace MissionSystem
             rect.anchoredPosition = anchoredPos;
             rect.sizeDelta = new Vector2(-20, 30);
             
-            var tmp = textObj.AddComponent<TextMeshProUGUI>();
+            var tmp = textObj.AddComponent<Text>();
             tmp.text = text;
             tmp.fontSize = fontSize;
             tmp.fontStyle = style;
             tmp.color = Color.white;
-            tmp.enableWordWrapping = true;
+            tmp.horizontalOverflow = HorizontalWrapMode.Wrap;
         }
         
         private void CreateTestMissions()

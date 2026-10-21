@@ -1,6 +1,5 @@
 using UnityEngine;
 using UnityEngine.UI;
-using TMPro;
 
 namespace MissionSystem
 {
@@ -11,10 +10,10 @@ namespace MissionSystem
     {
         [Header("Referencias UI")]
         [SerializeField] private GameObject missionPanel;
-        [SerializeField] private TextMeshProUGUI missionNameText;
-        [SerializeField] private TextMeshProUGUI missionDescriptionText;
-        [SerializeField] private TextMeshProUGUI missionObjectiveText;
-        [SerializeField] private TextMeshProUGUI timerText;
+        [SerializeField] private Text missionNameText;
+        [SerializeField] private Text missionDescriptionText;
+        [SerializeField] private Text missionObjectiveText;
+        [SerializeField] private Text timerText;
         [SerializeField] private Slider progressBar;
         [SerializeField] private Image missionIcon;
         
