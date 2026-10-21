@@ -1,8 +1,7 @@
 {
   "name": "MissionSystem",
   "references": [
-    "PlayerSystem",
-    "WorldSystem"
+    "PlayerSystem"
   ],
   "includePlatforms": [],
   "excludePlatforms": [],
