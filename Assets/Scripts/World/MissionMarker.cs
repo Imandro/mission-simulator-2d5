@@ -106,13 +106,30 @@ namespace WorldSystem
         /// </summary>
         public void PlayCompleteEffect()
         {
-            // Escalar y desvanecer
-            LeanTween.scale(gameObject, Vector3.zero, 0.5f).setEaseOutBack();
+            // Escalar y desvanecer (sin LeanTween)
+            StartCoroutine(ScaleDownAndDestroy());
             
             if (particles != null)
             {
                 particles.Play();
             }
+        }
+        
+        private System.Collections.IEnumerator ScaleDownAndDestroy()
+        {
+            float duration = 0.5f;
+            float elapsed = 0f;
+            Vector3 startScale = transform.localScale;
+            
+            while (elapsed < duration)
+            {
+                elapsed += Time.deltaTime;
+                float t = elapsed / duration;
+                transform.localScale = Vector3.Lerp(startScale, Vector3.zero, t);
+                yield return null;
+            }
+            
+            transform.localScale = Vector3.zero;
         }
     }
 }
